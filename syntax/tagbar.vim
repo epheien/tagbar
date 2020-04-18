@@ -34,6 +34,7 @@ unlet s:pattern
 syntax match TagbarHelp      '^".*' contains=TagbarHelpKey,TagbarHelpTitle
 syntax match TagbarHelpKey   '" \zs.*\ze:' contained
 syntax match TagbarHelpTitle '" \zs-\+ \w\+ -\+' contained
+syntax match TagbarFunction  display "\<[a-zA-Z_][a-zA-Z0-9_]*\>("me=e-1
 
 syntax match TagbarNestedKind '^\s\+\[[^]]\+\]$'
 syntax match TagbarType       ' : \zs.*'
@@ -51,6 +52,7 @@ highlight default link TagbarSignature  SpecialKey
 highlight default link TagbarPseudoID   NonText
 highlight default link TagbarFoldIcon   Statement
 highlight default link TagbarHighlight  Search
+highlight default link TagbarFunction   Function
 
 highlight default TagbarAccessPublic    guifg=Green ctermfg=Green
 highlight default TagbarAccessProtected guifg=Blue  ctermfg=Blue
