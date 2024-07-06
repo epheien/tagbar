@@ -3161,6 +3161,10 @@ function! s:SetStatusLine() abort
         return
     endif
 
+    if get(g:, 'tagbar_disable_statusline')
+        return
+    endif
+
     " Make sure we're actually in the Tagbar window
     if tagbarwinnr != winnr()
         let in_tagbar = 0
