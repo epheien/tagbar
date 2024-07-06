@@ -2,8 +2,8 @@
 " Description: Tagbar syntax settings
 " Author:      Jan Larres <jan@majutsushi.net>
 " Licence:     Vim licence
-" Website:     http://majutsushi.github.com/tagbar/
-" Version:     2.7
+" Website:     https://preservim.github.io/tagbar
+" Version:     3.1.1
 
 scriptencoding utf-8
 
@@ -37,8 +37,9 @@ syntax match TagbarHelpTitle '" \zs-\+ \w\+ -\+' contained
 syntax match TagbarFunction  display "\<[a-zA-Z_][a-zA-Z0-9_]*\>("me=e-1
 
 syntax match TagbarNestedKind '^\s\+\[[^]]\+\]$'
-syntax match TagbarType       ' : \zs.*'
-syntax match TagbarSignature  '(.*)'
+syntax match TagbarType       ' : \zs.*' contains=TagbarTagLineN
+syntax match TagbarTagLineN   '\s\+\[[0-9]\+\]\(\s\+\|$\)'
+syntax match TagbarSignature  '\(\<operator *( *) *\)\?\zs(.*)\ze'
 syntax match TagbarPseudoID   '\*\ze :'
 
 highlight default link TagbarHelp       Comment
@@ -48,6 +49,7 @@ highlight default link TagbarKind       Identifier
 highlight default link TagbarNestedKind TagbarKind
 highlight default link TagbarScope      Title
 highlight default link TagbarType       Type
+highlight default link TagbarTagLineN   Comment
 highlight default link TagbarSignature  SpecialKey
 highlight default link TagbarPseudoID   NonText
 highlight default link TagbarFoldIcon   Statement
